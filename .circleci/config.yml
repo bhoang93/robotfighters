@@ -23,11 +23,11 @@ jobs:
      - checkout
      - run: echo "random"
 workflows:
-  version: 2
+ version: 2
   build_test_lint:
     jobs:
-      - build
-      - randomtest
-      - test: #Needs random test to succeed first before it is run.
-         requires:
-           -randomtest
+     - build
+     - randomtest
+     - test: #Needs random test to succeed first before it is run.
+        requires:
+         -randomtest
