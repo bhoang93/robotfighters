@@ -20,8 +20,8 @@ jobs:
     docker: # See https://docs.docker.com/get-started/#docker-concepts if you are new to Docker.
       - image: circleci/node:8.9
     steps:
-     - checkout
-     - run: echo "random"
+      - checkout
+      - run: echo "random"
 workflows:
  version: 2
   build_test_lint:
