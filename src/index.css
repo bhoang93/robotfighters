@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url(https://img.freepik.com/free-vector/robots-pattern-design_1131-2.jpg?size=338&ext=jpg);
+}
+
+h1 {
+	color: white;
+	font-weight: bold;
+	font-family: 'Bebas Neue';
+	text-shadow: 2px 2px 2px black;
+}
