@@ -1,20 +1,33 @@
 version: 2
 jobs:
-  eric:
+  build:
     docker: # See https://docs.docker.com/get-started/#docker-concepts if you are new to Docker.
-      - image: circleci/ruby:2.4.1-jessie
+      - image: circleci/node:8.9
     steps:
       - checkout
-      - run: echo "A first hello"
-  tim:
+      - run: echo "npm installing"
+      - run: npm install
+      - run: CI=true npm run build
+  test:
     docker: # See https://docs.docker.com/get-started/#docker-concepts if you are new to Docker.
-      - image: circleci/ruby:2.4.1-jessie
+      - image: circleci/node:8.9
     steps:
       - checkout
-      - run: echo "Second hello"
+      - run: echo "testing"
+      - run: npm install
+      - run: npm test
+  randomtest:
+    docker: # See https://docs.docker.com/get-started/#docker-concepts if you are new to Docker.
+      - image: circleci/node:8.9
+    steps:
+     - checkout
+     - run: echo "random"
 workflows:
   version: 2
-  eric_tim:
+  build_test_lint:
     jobs:
-      - eric
-      - tim
+      - build
+      - randomtest
+      - test: #Needs random test to succeed first before it is run.
+         requires:
+           -randomtest
