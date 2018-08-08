@@ -12,9 +12,9 @@ jobs:
     steps:
       - checkout
       - run: echo "Second hello"
-  workflows:
-    version: 2
-    eric_tim:
-      jobs:
-        - eric
-        - tim
+workflows:
+  version: 2
+  eric_tim:
+    jobs:
+      - eric
+      - tim
